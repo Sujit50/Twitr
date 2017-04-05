@@ -2,7 +2,9 @@
 
 NodeJS with expressjs & MongoDB
 
-start app : *DEBUG=twitr npm start*
+*Take a clone* & run *npm install*
+
+start app : *DEBUG=twitr\* npm start*
 
 app url : *http://localhost:3000/*
 
