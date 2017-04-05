@@ -16,33 +16,43 @@
 			width: 35em !important;
 			transition: height width .3s ease-out;
 		}
+		.list-group {
+			max-height: 430px;
+			overflow-y:scroll;
+		}
 	</style>
 </head>
 <body>
 	<h2><%= title %></h2>
 	<p>Welcome to <%= title %></p>
 	<div class="row">
-		<div class="input-group pull-left">
+		<div class="col-md-6">
+		<form id="formPost" method="" action="javascript:;">
+			<div class="row">
 			<div class="col-md-8">
-				<textarea id="twit" class="large-compact form-control" placeholder="Post Something..." rows="10"></textarea>
+				<textarea required="" id="twit" class="large-compact form-control" placeholder="Post Something..." rows="10"></textarea>
 			</div>
-			<span class="input-group-btn pull-right">
-				<button class="submit btn btn-primary">POST</button>
-			</span>
+			<div class="col-md-4 text-right">
+				<span class="input-group-btn">
+					<button type="submit" class="submit btn btn-primary">POST</button>
+				</span>
+			</div>
+			</div>
+		</form>
 		</div>
 		<div class="col-md-6 pull-right">
-			<div class="list-group">
+			<div class="list-group well">
 				<% for(var i=0; i < data.length; i++) {%>
-				<li style="margin-bottom: 8px" class="list-group-item">
-					<h4 data-type="textarea" data-name="content-name" class="content list-group-item-heading" data-pk="<%= data[i]._id %>" data-url="/twit"><%= data[i].content %></h4>
-					<div><i class="pull-right list-group-item-text small"><%= moment(data[i].date).fromNow(); %></i></div>
-					<span style="cursor: pointer;" data-val="<%= data[i]._id %>" class="delete glyphicon glyphicon-trash" aria-hidden="true"></span>
-				</li>
-				<% } %>
+					<li style="margin-bottom: 8px" class="list-group-item">
+						<h4 data-type="textarea" data-name="content-name" class="content list-group-item-heading" data-pk="<%= data[i]._id %>" data-url="/twit"><%= data[i].content %></h4>
+						<div><i class="pull-right list-group-item-text small"><%= moment(data[i].date).fromNow(); %></i></div>
+						<span style="cursor: pointer;" data-val="<%= data[i]._id %>" class="delete glyphicon glyphicon-trash" aria-hidden="true"></span>
+					</li>
+					<% } %>
+				</div>
 			</div>
 		</div>
-	</div>
-</body>
+	</body>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" crossorigin="anonymous"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>

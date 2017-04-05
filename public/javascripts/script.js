@@ -10,11 +10,18 @@ function onTextAreaShown() {
 }
 
 $(document).ready(function() {
-    $('.content').editable();
+    $('.content').editable({
+        validate: function(value) {
+            if ($.trim(value) == '') {
+                return 'This field is required';
+            }
+        }
+    });
     onTextAreaShown();
 });
 
-$('.submit').on('click', function() {
+$('#formPost').submit(function(e) {
+    e.preventDefault();
     var post = $("#twit").val().trim();
     $.ajax({
         type: "POST",
