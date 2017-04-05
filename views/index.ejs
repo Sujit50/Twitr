@@ -41,7 +41,7 @@
 		</form>
 		</div>
 		<div class="col-md-6 pull-right">
-			<div class="list-group well">
+			<div class="list-group well" <% if (data.length == 0) { %> style="display: none;" <% } %> >
 				<% for(var i=0; i < data.length; i++) {%>
 					<li style="margin-bottom: 8px" class="list-group-item">
 						<h4 data-type="textarea" data-name="content-name" class="content list-group-item-heading" data-pk="<%= data[i]._id %>" data-url="/twit"><%= data[i].content %></h4>

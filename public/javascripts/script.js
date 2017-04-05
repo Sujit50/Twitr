@@ -34,6 +34,7 @@ $('#formPost').submit(function(e) {
             $('.list-group').prepend(data);
             $('.content').editable();
             onTextAreaShown();
+            $('.list-group').show();
         }
     });
 });
@@ -47,6 +48,7 @@ $(document).on('click', '.delete', function() {
         success: function(data, textStatus, jqXHR) {
             $elm.parent().fadeOut(500, function() {
                 $elm.parent().remove();
+                if ($('.list-group').children().length == 0) $('.list-group').hide();
             });
         }
     });
